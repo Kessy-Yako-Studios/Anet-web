@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons & Pricing - Piano with Aneta</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* ZDE UPRAVUJEŠ VÝŠKU CELÉ LIŠTY */
+        nav {
+            height: 65px !important; /* Přepiš číslo pro změnu výšky lišty */
+            padding-top: 0 !important; 
+            padding-bottom: 0 !important;
+        }
+
+        /* Styl pro výrazné tlačítko v navigaci a pozici menu */
+        nav ul {
+            align-items: center; 
+            margin-right: 50px; 
+        }
+        
+        .nav-cta-btn {
+            background-color: #f4d0a4 !important; 
+            color: #000000 !important; 
+            padding: 12px 24px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .nav-cta-btn:hover {
+            background-color: #d6a469 !important; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            color: #ffffff !important;
+        }
+
+        /* Nové styly pro rozbalovací karty */
+        .interactive-card {
+            cursor: pointer;
+            border-radius: 15px !important; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        
+        /* Skrytý obsah karty, který se plynule rozbalí */
+        .card-expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.3s ease;
+            opacity: 0;
+            text-align: left;
+        }
+
+        /* Stav, když je karta rozbalená */
+        .interactive-card.expanded .card-expandable-content {
+            max-height: 600px; 
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        /* Stylování indikátoru (pluska) */
+        .expand-trigger {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #d6a469;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .interactive-card:hover .expand-trigger {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="images/logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        </div>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="aboutme.html">ABOUT ME</a></li>
+            <li><a href="lessons.html">LESSONS</a></li>
+            <li><a href="lessons.html#fee">FEE</a></li>
+            <li><a href="testimonial.html">TESTIMONIALS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="triallesson.html" class="nav-cta-btn">BOOK A TRIAL LESSON</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero lessons-hero" style="background-position: center 38%; height: 900px;">
+        <div class="hero-text">
+        </div>
+    </header>
+
+    <section class="lessons-banner" style="padding: 80px 20px;">
+        <div class="banner-content" style="max-width: 1000px; text-align: center;">
+            <h2 style="font-size: 3.5rem; line-height: 1.3; margin-bottom: 30px; color: #000000;">Piano & Music Theory Lessons<br>(In-Person and Online)</h2>
+            
+            <hr style="border: 0; border-top: 1px solid rgba(0, 0, 0, 0.2); width: 100px; margin: 0 auto 30px auto;">
+            
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #333; margin-bottom: 25px; font-weight: 600;">I offer personalised one-to-one lessons for children, teenagers, and adults of all skill levels.</p>
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #333; margin-bottom: 25px; font-weight: 600;">Lessons can take place in your home, at your office, or online.</p>
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #333; margin-bottom: 0; font-weight: 600;">I teach throughout London Zones 1-3 for in-person lessons.</p>
+        </div>
+    </section>
+
+    <section style="padding: 80px 20px; background-color: #ffffff;">
+        
+        <div class="cards-container">
+            <div class="card interactive-card" onclick="toggleCard(this)" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
+                <div style="padding: 20px 20px 0 20px; height: 260px; display: flex; justify-content: center; align-items: center;">
+                    <img src="images/p1.webp" alt="Piano" style="width: 100%; height: 260px; object-fit: contain; border-radius: 15px;">
+                </div>
+                <div style="padding: 10px 20px 0 20px; text-align: center;">
+                    <h3 style="font-family: serif; font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid #f4d0a4; display: inline-block; padding-bottom: 5px; color: #000000;">PIANO</h3>
+                    <p style="font-size: 1.05rem; color: #555; margin-bottom: 5px;">Build strong foundations while playing the music you love.</p>
+                    
+                    <span class="expand-trigger">Read more +</span>
+                    
+                    <div class="card-expandable-content">
+                        <p style="font-size: 1rem; color: #333; margin-bottom: 15px; line-height: 1.6;">Piano lessons with me are designed to help you become a confident, expressive musician while enjoying the learning process. Lessons combine structure and creativity so you can build strong foundations.</p>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #000000;">What you can learn:</h4>
+                        <ul style="font-size: 1rem; color: #333; list-style-type: none; padding-left: 0; line-height: 1.8;">
+                            <li>• Classical, pop, jazz, and film music</li>
+                            <li>• Playing with confidence and expression</li>
+                            <li>• Rhythm, technique, and reading music</li>
+                            <li>• Singing along or playing with backing tracks</li>
+                            <li>• Improvisation and creating your own music</li>
+                            <li>• ABRSM or other exam preparation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card interactive-card" onclick="toggleCard(this)" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
+                <div style="padding: 20px 20px 0 20px; height: 260px; display: flex; justify-content: center; align-items: center;">
+                    <img src="images/p2.webp" alt="Adult Piano" style="width: 100%; height: 260px; object-fit: contain; border-radius: 15px;">
+                </div>
+                <div style="padding: 10px 20px 0 20px; text-align: center;">
+                    <h3 style="font-family: serif; font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid #f4d0a4; display: inline-block; padding-bottom: 5px; color: #000000;">ADULT PIANO</h3>
+                    <p style="font-size: 1.05rem; color: #555; margin-bottom: 5px;">Have you ever wished you had learned the piano as a child? Or maybe you want to pick it up again?</p>
+                    
+                    <span class="expand-trigger">Read more +</span>
+                    
+                    <div class="card-expandable-content">
+                        <p style="font-size: 1rem; color: #333; margin-bottom: 15px; line-height: 1.6;">Many adults carry that dream with them for years, often setting it aside as life becomes busy with work, family, and daily responsibilities. The good news is that it is never too late to start.</p>
+                        <p style="font-size: 1rem; color: #333; margin-bottom: 15px; line-height: 1.6;">Whether you’d love to play your favourite songs, unwind at the piano after a long day or between work meetings, or share music with your loved ones, your lessons with me will be tailored entirely around your goals.</p>
+                        <p style="font-size: 1rem; color: #333; margin-bottom: 15px; line-height: 1.6;">My personalised tuition will keep you inspired while helping you make real, meaningful progress. I am sure we will have a lot of fun and some good laughs too.</p>
+                        <p style="font-size: 1rem; color: #333; margin-bottom: 15px; line-height: 1.6;">For adult students, I offer lunch time and evening lesson slots so you can easily fit piano around your schedule and prioritise something just for yourself.</p>
+                        <p style="font-size: 1rem; color: #333; margin-bottom: 15px; line-height: 1.6;">You don’t need any previous experience, just the desire to give it a go.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card interactive-card" onclick="toggleCard(this)" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
+                <div style="padding: 20px 20px 0 20px; height: 260px; display: flex; justify-content: center; align-items: center;">
+                    <img src="images/music.webp" alt="Music Theory" style="width: 100%; height: 260px; object-fit: contain; border-radius: 15px;">
+                </div>
+                <div style="padding: 10px 20px 0 20px; text-align: center;">
+                    <h3 style="font-family: serif; font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid #f4d0a4; display: inline-block; padding-bottom: 5px; color: #000000;">MUSIC THEORY</h3>
+                    <p style="font-size: 1.05rem; color: #555; margin-bottom: 5px;">Gain a deeper understanding of music and its notation.</p>
+                    
+                    <span class="expand-trigger">Read more +</span>
+                    
+                    <div class="card-expandable-content">
+                        <p style="font-size: 1rem; color: #333; margin-bottom: 15px; line-height: 1.6;">I currently offer Music Theory lessons based on the ABRSM syllabus up to Grade 5.</p>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: #000000;">These lessons are designed to:</h4>
+                        <ul style="font-size: 1rem; color: #333; list-style-type: none; padding-left: 0; line-height: 1.8;">
+                            <li>• Support your practical music studies by developing a strong understanding of notation, rhythm, harmony, and musical structure</li>
+                            <li>• Help you gain a deeper understanding of music and how it is written, structured and performed</li>
+                            <li>• Enhance your sight-reading, musicianship, composing, performing, and improvisation skills</li>
+                            <li>• Prepare you for the Grade 5 Music Theory exam, which is a prerequisite for ABRSM Practical Grades 6–8</li>
+                        </ul>
+                        <p style="font-size: 1rem; color: #333; margin-top: 15px; margin-bottom: 15px; line-height: 1.6;">Music theory lessons make everything you play at the piano clearer, more meaningful, and more confident.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fee" style="background-color: #f9f9f9; padding: 80px 20px; text-align: center; border-top: 1px solid #eaeaea;">
+        <h2 style="font-size: 3rem; font-family: serif; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; color: #000000;">Lesson Fee</h2>
+        <h3 style="font-size: 2.8rem; margin-bottom: 40px; font-weight: normal; font-family: sans-serif; color: #000000;">£60 / hour</h3>
+        
+        <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; line-height: 1.8; color: #333; max-width: 800px; margin: 0 auto;">
+            Payments are made monthly and spread evenly across the academic year (September - July). Alternative arrangements can be discussed if needed.
+        </p>
+    </section>
+
+    <section style="padding: 80px 20px; background-color: #ffffff; text-align: center;">
+        <h2 style="font-size: 3rem; font-family: serif; margin-bottom: 25px; color: #000000;">TRIAL LESSON</h2>
+        <p style="font-size: 1.5rem; color: #333; margin-bottom: 35px;">This is your first commitment-free session where we:</p>
+        
+        <div style="display: inline-block; text-align: left; font-size: 1.5rem; color: #444; line-height: 2; margin-bottom: 40px;">
+            <p>♪ Get to know each other</p>
+            <p>♪ Explore your goals</p>
+            <p>♪ Assess your level</p>
+            <p>♪ Learn and play together</p>
+            <p>♪ Agree a suitable weekly lesson time if you wish to continue</p>
+        </div>
+        
+        <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: #333; max-width: 900px; margin: 0 auto 50px auto; line-height: 1.8; text-align: center;">
+            The trial lesson is booked and paid for separately. Payment is <br> kindly requested at least 24 hours before the lesson takes place.
+        </p>
+        
+        <a href="triallesson.html#dotaznik" class="btn-solid" style="padding: 20px 50px; font-size: 1.2rem; border-radius: 0;">BOOK YOUR FIRST TRIAL LESSON</a>
+    </section>
+
+    <section class="cta-footer-section">
+        <div class="cta-buttons">
+            <a href="triallesson.html#dotaznik" class="btn-solid">BOOK A TRIAL LESSON</a>
+            <button onclick="navigator.clipboard.writeText('pianowithaneta@gmail.com'); alert('Email copied to clipboard!');" class="btn-outline-white">✉ COPY MY EMAIL</button>
+        </div>
+        
+        <footer>
+            <p>© 2026 Piano with Aneta. All rights reserved.</p>
+            <p><a href="privacy.html" style="color: #888; text-decoration: underline;">Privacy Policy</a> | Website by Kessy Yako Studios</p>
+        </footer>
+    </section>
+
+    <script>
+        function toggleCard(card) {
+            card.classList.toggle('expanded');
+            const trigger = card.querySelector('.expand-trigger');
+            if (card.classList.contains('expanded')) {
+                trigger.textContent = 'Close -';
+            } else {
+                trigger.textContent = 'Read more +';
+            }
+        }
+    </script>
+</body>
+</html>
