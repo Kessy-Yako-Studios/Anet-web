@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn piano with Aneta, a passionate teacher in London with 15+ years of experience. Tailored lessons for beginners and advanced students of all ages.">
+    
+    <!-- Open Graph tagy pro sociální sítě -->
+    <meta property="og:title" content="About Me - Piano with Aneta">
+    <meta property="og:description" content="Learn piano with Aneta, a passionate teacher in London with 15+ years of experience. Tailored lessons for beginners and advanced students of all ages.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pianowithaneta.co.uk">
+    <meta property="og:image" content="https://pianowithaneta.co.uk/images/foto%20(25)%201.webp">
+
     <title>About Me - Piano with Aneta</title>
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* ZDE UPRAVUJEŠ VÝŠKU CELÉ LIŠTY */
         nav {
             height: 65px !important; 
             padding-top: 0 !important; 
             padding-bottom: 0 !important;
         }
 
-        /* Styl pro výrazné tlačítko v navigaci a pozici menu (sjednoceno s HOME) */
         nav ul {
             align-items: center; 
             margin-right: 50px; 
         }
         
+        nav a {
+            white-space: nowrap; 
+        }
+
         .nav-cta-btn {
             background-color: #f4d0a4 !important; 
             color: #000000 !important; 
@@ -34,31 +45,28 @@
             color: #ffffff !important;
         }
 
-        /* Čistý layout bez barevných boxů */
         .about-layout {
             max-width: 1200px;
             margin: 80px auto 60px auto;
             padding: 0 20px;
         }
 
-        /* Fotka vycentrovaná nahoře */
         .about-image {
             width: 100%;
-            margin-bottom: 40px; /* Mezera mezi fotkou a textem */
+            margin-bottom: 40px;
             display: flex;
-            justify-content: center; /* Vycentruje fotku na střed stránky */
+            justify-content: center;
         }
 
         .about-image img {
             width: 100%;
-            max-width: 700px; /* ZDE MŮŽEŠ UPRAVIT VELIKOST FOTKY (např. 600px pro ještě menší) */
+            max-width: 700px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             display: block;
         }
 
-        /* Text pod fotkou přes celou šířku */
         .about-text {
             width: 100%;
         }
@@ -75,26 +83,119 @@
             margin-bottom: 0;
         }
 
-        /* NASTAVENÍ HERO FOTKY PRO PC */
         .about-hero {
-            background-image: url('foto (27).webp');
+            background-image: url('images/foto (27).webp');
             background-size: cover;
-            /* Zvýšeno na 25% - fotka by měla sjet o něco níž než při 20% */
             background-position: center 123%; 
             background-attachment: fixed;
         }
 
-        /* Responzivita pro mobily */
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
+            nav {
+                flex-direction: row; 
+                height: 65px !important; 
+                padding: 0 20px !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+                cursor: pointer;
+                flex-direction: column;
+                gap: 6px;
+                z-index: 1001;
+            }
+
+            .hamburger span {
+                width: 30px;
+                height: 3px;
+                background-color: #ffffff;
+                transition: all 0.3s ease;
+                border-radius: 2px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 65px; 
+                right: -100%; 
+                width: 280px; 
+                height: calc(100vh - 65px);
+                background-color: #000000;
+                flex-direction: column !important; 
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 40px;
+                margin: 0 !important;
+                transition: right 0.4s ease; 
+                box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+                flex-wrap: nowrap;
+                gap: 0;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li {
+                margin-bottom: 25px;
+                opacity: 0;
+                transform: translateX(50px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+
+            nav ul.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            nav ul.active li:nth-child(1) { transition-delay: 0.1s; }
+            nav ul.active li:nth-child(2) { transition-delay: 0.2s; }
+            nav ul.active li:nth-child(3) { transition-delay: 0.3s; }
+            nav ul.active li:nth-child(4) { transition-delay: 0.4s; }
+            nav ul.active li:nth-child(5) { transition-delay: 0.5s; }
+            nav ul.active li:nth-child(6) { transition-delay: 0.6s; }
+            nav ul.active li:nth-child(7) { transition-delay: 0.7s; }
+
+            nav a {
+                font-size: 1.1rem; 
+            }
+
+            .nav-cta-btn {
+                display: inline-block;
+                padding: 12px 20px !important;
+                font-size: 1rem !important;
+                margin-top: 10px;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
             .about-text p {
                 text-align: left;
             }
             
-            /* ÚPRAVA HERO FOTKY PRO MOBILY */
             .about-hero {
                 background-attachment: scroll; 
-                /* Mobil zůstává na tvých 20%, takže se pro něj nic nemění */
                 background-position: center 20%; 
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .btn-outline, .btn-solid, .btn-outline-white {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
             }
         }
     </style>
@@ -102,11 +203,18 @@
 <body>
 
     <nav>
-        <div class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        <a href="index" class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+            <img src="images/logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        </a>
+
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <ul>
-            <li><a href="/">HOME</a></li>
+
+        <ul id="navLinks">
+            <li><a href="index">HOME</a></li>
             <li><a href="aboutme">ABOUT ME</a></li>
             <li><a href="lessons">LESSONS</a></li>
             <li><a href="lessons#fee">FEE</a></li>
@@ -125,7 +233,7 @@
     <section class="about-layout">
         
         <div class="about-image">
-            <img src="uc1.webp" alt="Aneta - Piano Teacher">
+            <img src="images/uc1.webp" alt="Aneta - Piano Teacher">
         </div>
         
         <div class="about-text">
@@ -151,6 +259,16 @@
             <p><a href="privacy" style="color: #888; text-decoration: underline;">Privacy Policy</a> | Website by Kessy Yako Studios</p>
         </footer>
     </section>
+
+    <script>
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>

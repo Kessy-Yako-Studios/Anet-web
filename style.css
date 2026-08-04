@@ -1,20 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
 
-/* --- Základní reset --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 500; /* Medium */
+    font-weight: 500;
     color: #333;
     line-height: 1.6;
 }
 
-/* --- Navigace --- */
 nav {
     background-color: #000000;
     color: white;
@@ -22,14 +25,30 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    position: sticky; /* Toto drží navigaci nahoře */
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Zajišťuje, že navigace bude vždy nad ostatním obsahem */
+    z-index: 1000;
 }
 
 nav .logo {
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 nav ul {
@@ -46,10 +65,9 @@ nav a {
     text-transform: uppercase;
 }
 
-/* --- Hero Sekce (Index) --- */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('foto (25) 1.webp');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/foto (25) 1.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -64,10 +82,8 @@ nav a {
     font-style: italic;
 }
 
-/* --- Hero Sekce (Speciálně pro Book a Trial Lesson) --- */
 .trial-hero {
     height: 100vh;
-    /* Žádná fotka, jen černé pozadí */
     background-color: #000000;
     display: flex;
     justify-content: center;
@@ -81,7 +97,6 @@ nav a {
     font-style: italic;
 }
 
-/* --- Úvodní sekce (HOME - 1. sekce) --- */
 .intro-section {
     display: flex;
     align-items: center; 
@@ -118,7 +133,6 @@ nav a {
     border-radius: 8px;
 }
 
-/* --- Sekce Why Choose Me (HOME - 2. sekce) --- */
 .why-me-section {
     background-color: #f4d0a4;
 }
@@ -171,7 +185,6 @@ nav a {
     font-size: 1.1rem;
 }
 
-/* --- Sekce Find out more --- */
 .find-out-more {
     padding: 80px 20px;
     text-align: center;
@@ -189,13 +202,15 @@ nav a {
 .cards-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .card {
-    flex: 1;
+    width: 380px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -215,10 +230,9 @@ nav a {
     height: 450px;
     object-fit: cover;
     margin-bottom: 20px;
-    border-radius: 12px 12px 0 0;
+    border-radius: 12px; 
 }
 
-/* --- Tlačítka (Společná čistá úprava bez glow) --- */
 .btn-outline, .btn-solid, .btn-outline-white {
     display: inline-block;
     text-align: center;
@@ -273,7 +287,6 @@ nav a {
     box-shadow: 0 6px 15px rgba(255,255,255,0.3);
 }
 
-/* --- CTA a Footer --- */
 .cta-footer-section {
     background-color: #000000;
     color: white;
@@ -294,13 +307,9 @@ footer p {
     margin: 5px 0;
 }
 
-/* =========================================
-   STRÁNKA: ABOUT ME
-   ========================================= */
-
 .about-hero {
     height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto (27).webp');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/foto (27).webp');
     background-size: cover;
     background-position: center;
 }
@@ -362,13 +371,9 @@ footer p {
     margin: 0 auto;
 }
 
-/* =========================================
-   STRÁNKA: LESSONS & PRICING
-   ========================================= */
-
 .lessons-hero {
     height: 60vh;
-    background: url('foto (10).webp') center/cover no-repeat;
+    background: url('images/foto (10).webp') center/cover no-repeat;
 }
 
 .lessons-banner {
@@ -514,10 +519,6 @@ footer p {
     margin-bottom: 8px;
 }
 
-/* =========================================
-   STRÁNKA: TESTIMONIALS
-   ========================================= */
-
 .testimonial-header {
     background-color: #000000;
     color: white;
@@ -587,10 +588,6 @@ footer p {
     margin-top: 10px;
     margin-bottom: 0;
 }
-
-/* =========================================
-   STRÁNKA: BOOK A TRIAL LESSON & CONTACT
-   ========================================= */
 
 .trial-info-section {
     padding: 80px 20px;
@@ -665,7 +662,6 @@ footer p {
     margin-bottom: 50px;
 }
 
-/* --- ČISTÉ STYLY FORMSPREE FORMULÁŘE --- */
 .piano-form-container {
     max-width: 600px;
     margin: 0 auto;
@@ -735,50 +731,95 @@ footer p {
     cursor: default;
 }
 
-/* =========================================
-   RESPONZIVITA (MOBILY A TABLETY)
-   Tento blok se aktivuje jen na úzkých obrazovkách
-   ========================================= */
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
+    .hero {
+        background-position: left center !important; 
+    }
 
-    /* --- 1. Navigace --- */
     nav {
-        flex-direction: column; /* Odkazy se naskládají pod logo */
-        height: auto !important; /* Dovolí liště se natáhnout podle počtu odkazů */
-        padding: 15px 10px !important;
+        flex-direction: row; 
+        height: 65px !important; 
+        padding: 0 20px !important;
+    }
+
+    .hamburger {
+        display: flex; 
     }
 
     nav ul {
-        flex-wrap: wrap; /* Zalomí odkazy na další řádky, aby nelezly ven */
-        justify-content: center;
-        gap: 15px;
-        margin-top: 15px;
-        margin-right: 0 !important;
+        position: fixed;
+        top: 65px; 
+        right: -100%; 
+        width: 280px; 
+        height: calc(100vh - 65px);
+        background-color: #000000;
+        flex-direction: column !important; 
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 40px;
+        margin: 0 !important;
+        transition: right 0.4s ease; 
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        flex-wrap: nowrap;
+        gap: 0;
     }
 
+    nav ul.active {
+        right: 0;
+    }
+
+    nav ul li {
+        margin-bottom: 25px;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    nav ul.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    nav ul.active li:nth-child(1) { transition-delay: 0.1s; }
+    nav ul.active li:nth-child(2) { transition-delay: 0.2s; }
+    nav ul.active li:nth-child(3) { transition-delay: 0.3s; }
+    nav ul.active li:nth-child(4) { transition-delay: 0.4s; }
+    nav ul.active li:nth-child(5) { transition-delay: 0.5s; }
+    nav ul.active li:nth-child(6) { transition-delay: 0.6s; }
+    nav ul.active li:nth-child(7) { transition-delay: 0.7s; }
+
     nav a {
-        font-size: 0.95rem; /* Zmenšení písma v menu pro více místa */
+        font-size: 1.1rem; 
     }
 
     .nav-cta-btn {
-        padding: 8px 16px !important;
-        font-size: 0.85rem !important;
+        display: inline-block;
+        padding: 12px 20px !important;
+        font-size: 1rem !important;
+        margin-top: 10px;
     }
 
-    /* --- 2. Sloupcové uspořádání (Všechny sekce, co byly vedle sebe) --- */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
     .intro-section, 
     .why-me-content, 
-    .cards-container, 
     .about-top, 
     .about-row, 
     .lesson-row, 
     .testimonial-content, 
     .trial-info-content {
-        flex-direction: column !important; /* Důležité: Naskládá to pod sebe */
+        flex-direction: column !important;
         gap: 30px !important;
     }
 
-    /* --- 3. Fotky na mobilu (aby nebyly obří) --- */
     .intro-logo img, 
     .why-me-image img, 
     .lesson-image img, 
@@ -786,15 +827,20 @@ footer p {
     .trial-img img {
         width: 100% !important;
         height: auto !important;
-        max-height: 400px !important; /* Fixní limit, aby fotka na mobilu nezabrala celý displej */
+        max-height: 400px !important;
     }
 
-    /* --- 4. Zmenšení obřích nadpisů --- */
+    .card img {
+        height: 280px !important; 
+        object-fit: cover !important;
+        object-position: center top !important; 
+    }
+
     .hero-text h1, 
     .trial-hero h1, 
     .about-hero h1, 
     .testimonial-header h1 {
-        font-size: 3rem !important; /* 72px je na mobil moc, zmenšujeme */
+        font-size: 3rem !important;
         text-align: center;
         line-height: 1.2;
     }
@@ -806,7 +852,6 @@ footer p {
         text-align: center;
     }
 
-    /* --- 5. Tlačítka pod sebou --- */
     .cta-buttons {
         flex-direction: column;
         gap: 15px;
@@ -814,11 +859,11 @@ footer p {
     }
 
     .btn-outline, .btn-solid, .btn-outline-white {
-        width: 90%; /* Tlačítka se roztáhnou, aby se do nich dalo dobře trefit prstem */
+        width: 100%;
+        max-width: 320px;
         margin: 0 auto;
     }
 
-    /* --- 6. Menší mezery na mobilu --- */
     .intro-section, 
     .why-me-content, 
     .find-out-more, 
@@ -830,11 +875,10 @@ footer p {
     .testimonial-section, 
     .trial-info-section, 
     .booking-form-section {
-        padding: 40px 20px !important; /* Osekáme obří paddingy (80px), na mobilu je to zbytečné posouvání */
+        padding: 40px 20px !important;
     }
 
-    /* --- 7. Grid v lessons --- */
     .info-grid {
-        grid-template-columns: 1fr; /* Ze tří sloupců se stane jeden */
+        grid-template-columns: 1fr;
     }
 }

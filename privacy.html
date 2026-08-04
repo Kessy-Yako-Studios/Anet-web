@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Piano with Aneta</title>
+    <meta name="description" content="Privacy Policy for Piano with Aneta. Learn how your personal data is collected, used, and protected when inquiring about piano lessons in London.">
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* ZDE UPRAVUJEŠ VÝŠKU CELÉ LIŠTY */
         nav {
             height: 65px !important; 
             padding-top: 0 !important; 
@@ -15,10 +15,13 @@
             background-color: #000;
         }
 
-        /* Styl pro výrazné tlačítko v navigaci a pozici menu */
         nav ul {
             align-items: center; 
             margin-right: 50px; 
+        }
+
+        nav a {
+            white-space: nowrap; 
         }
         
         .nav-cta-btn {
@@ -35,7 +38,6 @@
             color: #ffffff !important;
         }
 
-        /* Specifický styl pro text Privacy Policy */
         .privacy-content {
             max-width: 800px;
             margin: 60px auto 100px auto;
@@ -64,22 +66,117 @@
         .privacy-content li {
             margin-bottom: 10px;
         }
+
+        /* Styly pro hamburger menu a responzivitu */
+        @media (max-width: 1200px) {
+            nav {
+                flex-direction: row; 
+                height: 65px !important; 
+                padding: 0 20px !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+                cursor: pointer;
+                flex-direction: column;
+                gap: 6px;
+                z-index: 1001;
+            }
+
+            .hamburger span {
+                width: 30px;
+                height: 3px;
+                background-color: #ffffff;
+                transition: all 0.3s ease;
+                border-radius: 2px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 65px; 
+                right: -100%; 
+                width: 280px; 
+                height: calc(100vh - 65px);
+                background-color: #000000;
+                flex-direction: column !important; 
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 40px;
+                margin: 0 !important;
+                transition: right 0.4s ease; 
+                box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+                flex-wrap: nowrap;
+                gap: 0;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li {
+                margin-bottom: 25px;
+                opacity: 0;
+                transform: translateX(50px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+
+            nav ul.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            nav ul.active li:nth-child(1) { transition-delay: 0.1s; }
+            nav ul.active li:nth-child(2) { transition-delay: 0.2s; }
+            nav ul.active li:nth-child(3) { transition-delay: 0.3s; }
+            nav ul.active li:nth-child(4) { transition-delay: 0.4s; }
+            nav ul.active li:nth-child(5) { transition-delay: 0.5s; }
+            nav ul.active li:nth-child(6) { transition-delay: 0.6s; }
+            nav ul.active li:nth-child(7) { transition-delay: 0.7s; }
+
+            nav a {
+                font-size: 1.1rem; 
+            }
+
+            .nav-cta-btn {
+                display: inline-block;
+                padding: 12px 20px !important;
+                font-size: 1rem !important;
+                margin-top: 10px;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        <a href="index" class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+            <img src="images/logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        </a>
+
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="aboutme.html">ABOUT ME</a></li>
-            <li><a href="lessons.html">LESSONS</a></li>
-            <li><a href="lessons.html#fee">FEE</a></li>
-            <li><a href="testimonial.html">TESTIMONIALS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-            <li><a href="triallesson.html" class="nav-cta-btn">BOOK A TRIAL LESSON</a></li>
+
+        <ul id="navLinks">
+            <li><a href="index">HOME</a></li>
+            <li><a href="aboutme">ABOUT ME</a></li>
+            <li><a href="lessons">LESSONS</a></li>
+            <li><a href="lessons#fee">FEE</a></li>
+            <li><a href="testimonial">TESTIMONIALS</a></li>
+            <li><a href="contact">CONTACT</a></li>
+            <li><a href="triallesson" class="nav-cta-btn">BOOK A TRIAL LESSON</a></li>
         </ul>
     </nav>
 
@@ -88,7 +185,7 @@
     </header>
 
     <section class="privacy-content">
-        <p><em>Last updated: 20.6.2026</em></p>
+        <p><em>Last updated: 4. 8. 2026</em></p>
 
         <h2>Who I am</h2>
         <p>I am Aneta Mertova, a self-employed piano teacher operating as a sole trader in the United Kingdom.</p>
@@ -109,10 +206,10 @@
             <li>Provide information about piano and music theory lessons</li>
             <li>Arrange and manage lessons where applicable</li>
         </ul>
-        <p>My lawful basis for processing this information is my legitimate interest in responding to enquiries and providing piano tuition services.</p>
+        <p>My lawful bases for processing this information are my <strong>legitimate interest</strong> in responding to initial enquiries, and the <strong>performance of a contract</strong> when we arrange and manage your piano tuition services.</p>
 
-        <h2>How your information is stored</h2>
-        <p>Contact form submissions are processed through Formspree and delivered to my email inbox.</p>
+        <h2>How your information is stored and transferred</h2>
+        <p>Contact form submissions are processed securely through Formspree, a third-party service, and delivered to my email inbox. As Formspree is a US-based provider, your data may be transferred and processed outside the UK. This transfer is safeguarded by appropriate data protection mechanisms in compliance with UK GDPR.</p>
         <p>I take reasonable technical and organisational measures to protect your personal data, including securing my email account with two-factor authentication.</p>
         <p>I do not sell or share your personal information for marketing purposes.</p>
 
@@ -148,9 +245,19 @@
     <section class="cta-footer-section">
         <footer>
             <p>© 2026 Piano with Aneta. All rights reserved.</p>
-            <p><a href="privacy.html" style="color: #888; text-decoration: underline;">Privacy Policy</a> | Website by Kessy Yako Studios</p>
+            <p><a href="privacy" style="color: #888; text-decoration: underline;">Privacy Policy</a> | Website by Kessy Yako Studios</p>
         </footer>
     </section>
+
+    <script>
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>

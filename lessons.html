@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lessons & Pricing - Piano with Aneta</title>
+    <meta name="description" content="Discover in-person and online piano and music theory lessons in London. Tailored for children, adults, and beginners. View pricing and book a trial lesson!">
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* ZDE UPRAVUJEŠ VÝŠKU CELÉ LIŠTY */
         nav {
-            height: 65px !important; /* Přepiš číslo pro změnu výšky lišty */
+            height: 65px !important; 
             padding-top: 0 !important; 
             padding-bottom: 0 !important;
         }
 
-        /* Styl pro výrazné tlačítko v navigaci a pozici menu */
         nav ul {
             align-items: center; 
             margin-right: 50px; 
+        }
+        
+        nav a {
+            white-space: nowrap; 
         }
         
         .nav-cta-btn {
@@ -34,14 +37,13 @@
             color: #ffffff !important;
         }
 
-        /* Nové styly pro rozbalovací karty */
         .interactive-card {
             cursor: pointer;
             border-radius: 15px !important; 
             transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            overflow: hidden; /* ZAJISTÍ, ŽE OBRÁZEK NEVYTEČE VEN Z ROHŮ */
         }
         
-        /* Skrytý obsah karty, který se plynule rozbalí */
         .card-expandable-content {
             max-height: 0;
             overflow: hidden;
@@ -50,14 +52,12 @@
             text-align: left;
         }
 
-        /* Stav, když je karta rozbalená */
         .interactive-card.expanded .card-expandable-content {
             max-height: 600px; 
             opacity: 1;
             margin-top: 20px;
         }
 
-        /* Stylování indikátoru (pluska) */
         .expand-trigger {
             display: inline-block;
             margin-top: 15px;
@@ -72,22 +72,140 @@
         .interactive-card:hover .expand-trigger {
             color: #000;
         }
+
+        /* OPRAVA PRO OBRÁZKY V KARTÁCH, ABY NEBYLY UŘÍZNUTÉ A MĚLY KULATÉ ROHY */
+        .interactive-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Styly pro hamburger menu a responzivitu */
+        @media (max-width: 1200px) {
+            nav {
+                flex-direction: row; 
+                height: 65px !important; 
+                padding: 0 20px !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+                cursor: pointer;
+                flex-direction: column;
+                gap: 6px;
+                z-index: 1001;
+            }
+
+            .hamburger span {
+                width: 30px;
+                height: 3px;
+                background-color: #ffffff;
+                transition: all 0.3s ease;
+                border-radius: 2px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 65px; 
+                right: -100%; 
+                width: 280px; 
+                height: calc(100vh - 65px);
+                background-color: #000000;
+                flex-direction: column !important; 
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 40px;
+                margin: 0 !important;
+                transition: right 0.4s ease; 
+                box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+                flex-wrap: nowrap;
+                gap: 0;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li {
+                margin-bottom: 25px;
+                opacity: 0;
+                transform: translateX(50px);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+
+            nav ul.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            nav ul.active li:nth-child(1) { transition-delay: 0.1s; }
+            nav ul.active li:nth-child(2) { transition-delay: 0.2s; }
+            nav ul.active li:nth-child(3) { transition-delay: 0.3s; }
+            nav ul.active li:nth-child(4) { transition-delay: 0.4s; }
+            nav ul.active li:nth-child(5) { transition-delay: 0.5s; }
+            nav ul.active li:nth-child(6) { transition-delay: 0.6s; }
+            nav ul.active li:nth-child(7) { transition-delay: 0.7s; }
+
+            nav a {
+                font-size: 1.1rem; 
+            }
+
+            .nav-cta-btn {
+                display: inline-block;
+                padding: 12px 20px !important;
+                font-size: 1rem !important;
+                margin-top: 10px;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .btn-outline, .btn-solid, .btn-outline-white {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        <a href="index" class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+            <img src="images/logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        </a>
+
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="aboutme.html">ABOUT ME</a></li>
-            <li><a href="lessons.html">LESSONS</a></li>
-            <li><a href="lessons.html#fee">FEE</a></li>
-            <li><a href="testimonial.html">TESTIMONIALS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-            <li><a href="triallesson.html" class="nav-cta-btn">BOOK A TRIAL LESSON</a></li>
+
+        <ul id="navLinks">
+            <li><a href="index">HOME</a></li>
+            <li><a href="aboutme">ABOUT ME</a></li>
+            <li><a href="lessons">LESSONS</a></li>
+            <li><a href="lessons#fee">FEE</a></li>
+            <li><a href="testimonial">TESTIMONIALS</a></li>
+            <li><a href="contact">CONTACT</a></li>
+            <li><a href="triallesson" class="nav-cta-btn">BOOK A TRIAL LESSON</a></li>
         </ul>
     </nav>
 
@@ -110,10 +228,10 @@
 
     <section style="padding: 80px 20px; background-color: #ffffff;">
         
-        <div class="cards-container">
-            <div class="card interactive-card" onclick="toggleCard(this)" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
-                <div style="padding: 20px 20px 0 20px; height: 260px; display: flex; justify-content: center; align-items: center;">
-                    <img src="p1.webp" alt="Piano" style="width: 100%; height: 260px; object-fit: cover; border-radius: 15px;">
+        <div class="cards-container" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; max-width: 1400px; margin: 0 auto;">
+            <div class="card interactive-card" onclick="toggleCard(this)" style="width: 380px; max-width: 100%; background-color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
+                <div style="padding: 20px 20px 0 20px;">
+                    <img src="images/p1.webp" alt="Piano">
                 </div>
                 <div style="padding: 10px 20px 0 20px; text-align: center;">
                     <h3 style="font-family: serif; font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid #f4d0a4; display: inline-block; padding-bottom: 5px; color: #000000;">PIANO</h3>
@@ -136,9 +254,9 @@
                 </div>
             </div>
 
-            <div class="card interactive-card" onclick="toggleCard(this)" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
-                <div style="padding: 20px 20px 0 20px; height: 260px; display: flex; justify-content: center; align-items: center;">
-                    <img src="p2.webp" alt="Adult Piano" style="width: 100%; height: 260px; object-fit: cover; object-position: center 10%; border-radius: 15px;">
+            <div class="card interactive-card" onclick="toggleCard(this)" style="width: 380px; max-width: 100%; background-color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
+                <div style="padding: 20px 20px 0 20px;">
+                    <img src="images/p2.webp" alt="Adult Piano" style="object-position: center 10%;">
                 </div>
                 <div style="padding: 10px 20px 0 20px; text-align: center;">
                     <h3 style="font-family: serif; font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid #f4d0a4; display: inline-block; padding-bottom: 5px; color: #000000;">ADULT PIANO</h3>
@@ -156,9 +274,9 @@
                 </div>
             </div>
 
-            <div class="card interactive-card" onclick="toggleCard(this)" style="box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
-                <div style="padding: 20px 20px 0 20px; height: 260px; display: flex; justify-content: center; align-items: center;">
-                    <img src="music.webp" alt="Music Theory" style="width: 100%; height: 260px; object-fit: cover; border-radius: 15px;">
+            <div class="card interactive-card" onclick="toggleCard(this)" style="width: 380px; max-width: 100%; background-color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding-bottom: 20px;">
+                <div style="padding: 20px 20px 0 20px;">
+                    <img src="images/music.webp" alt="Music Theory">
                 </div>
                 <div style="padding: 10px 20px 0 20px; text-align: center;">
                     <h3 style="font-family: serif; font-size: 1.5rem; margin-bottom: 15px; border-bottom: 2px solid #f4d0a4; display: inline-block; padding-bottom: 5px; color: #000000;">MUSIC THEORY</h3>
@@ -185,7 +303,6 @@
         <h2 style="font-size: 3rem; font-family: serif; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; color: #000000;">Lesson Fee</h2>
         <h3 style="font-size: 2.8rem; margin-bottom: 40px; font-weight: normal; font-family: sans-serif; color: #000000;">£60 / hour</h3>
         
-        <!-- Roztaženo na 950px a rozděleno do dvou odstavců pro dokonalou kontrolu mezer a zarovnání -->
         <div style="max-width: 950px; margin: 0 auto;">
             <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; line-height: 1.8; color: #333; text-align: justify; text-align-last: center; margin-bottom: 30px;">
                 Payments are made monthly in equal instalments, with the fee calculated across the total number of lessons in the academic year (September - July).
@@ -212,18 +329,18 @@
             The trial lesson is booked and paid for separately. Payment is <br> kindly requested at least 24 hours before the lesson takes place.
         </p>
         
-        <a href="triallesson.html#dotaznik" class="btn-solid" style="padding: 20px 50px; font-size: 1.2rem; border-radius: 0;">BOOK YOUR FIRST TRIAL LESSON</a>
+        <a href="triallesson" class="btn-solid" style="padding: 20px 50px; font-size: 1.2rem; border-radius: 0;">BOOK YOUR FIRST TRIAL LESSON</a>
     </section>
 
     <section class="cta-footer-section">
         <div class="cta-buttons">
-            <a href="triallesson.html#dotaznik" class="btn-solid">BOOK A TRIAL LESSON</a>
+            <a href="triallesson" class="btn-solid">BOOK A TRIAL LESSON</a>
             <button onclick="navigator.clipboard.writeText('pianowithaneta@gmail.com'); alert('Email copied to clipboard!');" class="btn-outline-white">✉ COPY MY EMAIL</button>
         </div>
         
         <footer>
             <p>© 2026 Piano with Aneta. All rights reserved.</p>
-            <p><a href="privacy.html" style="color: #888; text-decoration: underline;">Privacy Policy</a> | Website by Kessy Yako Studios</p>
+            <p><a href="privacy" style="color: #888; text-decoration: underline;">Privacy Policy</a> | Website by Kessy Yako Studios</p>
         </footer>
     </section>
 
@@ -237,6 +354,14 @@
                 trigger.textContent = 'Read more +';
             }
         }
+
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
     </script>
 </body>
 </html>

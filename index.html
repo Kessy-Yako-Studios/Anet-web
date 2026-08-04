@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano with Aneta</title>
+    <meta name="description" content="Welcome to Piano with Aneta. Discover personalised piano and music theory lessons in London or online. Perfect for all ages and beginners. Book a trial!">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     
     <style>
-        /* ZDE UPRAVUJEŠ VÝŠKU CELÉ LIŠTY */
         nav {
-            height: 65px !important; /* Přepiš číslo pro změnu výšky lišty */
+            height: 65px !important; 
             padding-top: 0 !important; 
             padding-bottom: 0 !important;
         }
 
-        /* Styl pro výrazné tlačítko v navigaci a pozici menu */
         nav ul {
             align-items: center; 
-            margin-right: 50px; /* Posune celé menu s odkazy o kousek doleva */
+            margin-right: 50px; 
+        }
+        
+        nav a {
+            white-space: nowrap; 
         }
         
         .nav-cta-btn {
@@ -39,11 +42,18 @@
 <body>
 
     <nav>
-        <!-- ZDE UPRAVUJEŠ VELIKOST KRUHU: změň width a height (teď je to 50px) -->
-        <div class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-            <img src="logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        <!-- TADY JE ZMĚNA: Přidaný odkaz <a href="index.html"> kolem loga -->
+        <a href="index.html" class="logo" style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+            <img src="images/logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.5) translateX(0px) translateY(-3px);">
+        </a>
+        
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <ul>
+
+        <ul id="navLinks">
             <li><a href="index.html">HOME</a></li>
             <li><a href="aboutme.html">ABOUT ME</a></li>
             <li><a href="lessons.html">LESSONS</a></li>
@@ -74,14 +84,14 @@
         </div>
         
         <div class="intro-logo" style="flex: 1; display: flex; justify-content: center; align-items: center;"> 
-            <img src="logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: auto; border-radius: 8px; transform: scale(1.3) translateY(10px); transform-origin: center; clip-path: inset(12% 0 12% 0 round 8px);"> 
+            <img src="images/logo_white.webp" alt="Piano with Aneta Logo" style="width: 100%; height: auto; border-radius: 8px; transform: scale(1.3) translateY(10px); transform-origin: center; clip-path: inset(12% 0 12% 0 round 8px);"> 
         </div>
     </section>
 
     <section class="why-me-section">
         <div class="why-me-content" style="align-items: center;">
             <div class="why-me-image" style="flex: 0.8;">
-                <img src="foto (33) 1.webp" alt="Aneta at the piano" style="width: 100%; height: auto; border-radius: 8px;">
+                <img src="images/foto (33) 1.webp" alt="Aneta at the piano" style="width: 100%; height: auto; border-radius: 8px;">
             </div>
             
             <div class="why-me-text" style="flex: 1.2; color: #000000;">
@@ -105,17 +115,17 @@
         
         <div class="cards-container">
             <div class="card">
-                <img src="uc1.webp" alt="About Me" style="object-position: center 30%;">
+                <img src="images/uc1.webp" alt="About Me" style="object-position: center 30%;">
                 <a href="aboutme.html" class="btn-outline">ABOUT ME</a>
             </div>
             
             <div class="card">
-                <img src="f6.webp" alt="Lessons">
+                <img src="images/f6.webp" alt="Lessons">
                 <a href="lessons.html" class="btn-outline">LESSONS</a>
             </div>
             
             <div class="card">
-                <img src="T1.webp" alt="Testimonials">
+                <img src="images/T1.webp" alt="Testimonials">
                 <a href="testimonial.html" class="btn-outline">TESTIMONIALS</a>
             </div>
         </div>
@@ -132,6 +142,16 @@
             <p><a href="privacy.html" style="color: #888; text-decoration: underline;">Privacy Policy</a> | Website by Kessy Yako Studios</p>
         </footer>
     </section>
+
+    <script>
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
