@@ -519,76 +519,6 @@ footer p {
     margin-bottom: 8px;
 }
 
-.testimonial-header {
-    background-color: #000000;
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.testimonial-header h1 {
-    font-size: 72px; 
-    font-family: 'cursive', serif;
-    font-style: italic;
-    font-weight: normal;
-}
-
-.testimonial-section {
-    padding: 60px 20px;
-}
-
-.testimonial-section.bg-light {
-    background-color: #ffffff;
-    color: #333;
-}
-
-.testimonial-section.bg-dark {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.testimonial-content {
-    display: flex;
-    align-items: stretch;
-    max-width: 1400px;
-    margin: 0 auto;
-    gap: 60px;
-}
-
-.test-img, .test-text {
-    flex: 1;
-}
-
-.test-img {
-    min-height: 0;
-}
-
-.test-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.test-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
-}
-
-.test-text p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.test-text p.author {
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
 .trial-info-section {
     padding: 80px 20px;
 }
@@ -814,7 +744,6 @@ footer p {
     .about-top, 
     .about-row, 
     .lesson-row, 
-    .testimonial-content, 
     .trial-info-content {
         flex-direction: column !important;
         gap: 30px !important;
@@ -823,7 +752,6 @@ footer p {
     .intro-logo img, 
     .why-me-image img, 
     .lesson-image img, 
-    .test-img img, 
     .trial-img img {
         width: 100% !important;
         height: auto !important;
@@ -838,8 +766,7 @@ footer p {
 
     .hero-text h1, 
     .trial-hero h1, 
-    .about-hero h1, 
-    .testimonial-header h1 {
+    .about-hero h1 {
         font-size: 3rem !important;
         text-align: center;
         line-height: 1.2;
@@ -872,7 +799,6 @@ footer p {
     .lessons-banner, 
     .lesson-row, 
     .info-grid-section, 
-    .testimonial-section, 
     .trial-info-section, 
     .booking-form-section {
         padding: 40px 20px !important;

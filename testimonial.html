@@ -37,6 +37,85 @@
             color: #ffffff !important;
         }
 
+        /* ---------------------------------------------------
+           TESTIMONIALS CSS
+           --------------------------------------------------- */
+        
+        .testimonial-header {
+            background-color: #000000;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .testimonial-header h1 {
+            font-size: 72px; 
+            font-family: 'cursive', serif;
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        .testimonial-section {
+            padding: 60px 20px;
+        }
+
+        .testimonial-section.bg-light {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .testimonial-section.bg-dark {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .testimonial-content {
+            display: flex;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 60px;
+        }
+
+        .test-img, .test-text {
+            flex: 1;
+        }
+
+        .test-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 0;
+        }
+
+        .test-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Tady jsou fotky napevno zmrazené a zaoblené */
+        .test-img img {
+            width: 100%;
+            aspect-ratio: 4 / 3; /* Zmrazí VŠECHNY fotky do stejného poměru na šířku */
+            object-fit: cover; /* Fotka vyplní prostor bez roztahování */
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* Přidán lehký stín pro lepší vzhled */
+        }
+
+        .test-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .test-text p.author {
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
         /* Styly pro hamburger menu a responzivitu */
         @media (max-width: 1200px) {
             nav {
@@ -136,6 +215,22 @@
                 max-width: 320px;
                 margin: 0 auto;
             }
+
+            /* Testimonials responzivita */
+            .testimonial-content {
+                flex-direction: column !important;
+                gap: 30px !important;
+            }
+
+            .testimonial-header h1 {
+                font-size: 3rem !important;
+                text-align: center;
+                line-height: 1.2;
+            }
+
+            .testimonial-section {
+                padding: 40px 20px !important;
+            }
         }
     </style>
 </head>
@@ -170,7 +265,7 @@
     <section class="testimonial-section bg-light">
         <div class="testimonial-content">
             <div class="test-img">
-                <img src="images/T1.webp" alt="Student playing piano">
+                <img src="images/T1.webp" alt="Student playing piano" style="object-position: center 25%;">
             </div>
             <div class="test-text">
                 <p>We are incredibly grateful to have found such a wonderful piano teacher for our 6-year-old son. Aneta is kind, patient, and truly understanding. Our son has been diagnosed with autism, and she handles his mood swings and moments of frustration with remarkable calmness and care.</p>
@@ -187,7 +282,7 @@
                 <p class="author">- M-C (mum)</p>
             </div>
             <div class="test-img">
-                <img src="images/T2.webp" alt="Student playing piano">
+                <img src="images/T2.webp" alt="Student playing piano" style="object-position: center 25%;">
             </div>
         </div>
     </section>
@@ -195,7 +290,7 @@
     <section class="testimonial-section bg-light">
         <div class="testimonial-content">
             <div class="test-img">
-                <img src="images/T3.webp" alt="Student playing piano" style="width: 100%; height: 600px; object-fit: cover; object-position: center top;">
+                <img src="images/T3.webp" alt="Student playing piano" style="object-position: center 5%;">
             </div>
             <div class="test-text">
                 <p>Aneta is a great piano teacher and finds fun ways to teach. She explains things in a way that is easy to understand, even when the music is hard and to help find notes she has funny mnemonic devices. She is sweet and pretty and kind! Aneta is a great teacher and I feel that I have gotten a lot better at piano since learning with her. At the moment I'm learning and practicing songs for my grade 4 exams.</p>
@@ -215,7 +310,7 @@
                 <p class="author">- Alice</p>
             </div>
             <div class="test-img">
-                <img src="images/T4.webp" alt="Two students playing piano">
+                <img src="images/T4.webp" alt="Two students playing piano" style="object-position: center 50%;">
             </div>
         </div>
     </section>
@@ -223,7 +318,7 @@
     <section class="testimonial-section bg-light">
         <div class="testimonial-content">
             <div class="test-img">
-                <img src="images/T5.webp" alt="Mother and son at piano" style="width: 100%; height: 500px; object-fit: cover; object-position: center 70%;">
+                <img src="images/T5.webp" alt="Mother and son at piano" style="object-position: center 80%;">
             </div>
             <div class="test-text">
                 <p>Aneta is such an amazing and patient teacher. The lessons are engaging and tailored to each student, and her love for music really shines through in every class.</p>
@@ -240,7 +335,7 @@
                 <p class="author">- Trish</p>
             </div>
             <div class="test-img">
-                <img src="images/p2.webp" alt="Adult student playing piano">
+                <img src="images/p2.webp" alt="Adult student playing piano" style="object-position: center 0%;">
             </div>
         </div>
     </section>
@@ -248,7 +343,8 @@
     <section class="testimonial-section bg-light">
         <div class="testimonial-content">
             <div class="test-img">
-                <img src="images/T6.webp" alt="Young student at Kawai piano" style="width: 100%; height: 550px; object-fit: cover; object-position: center 40%;">
+                <!-- 7. FOTKA: vráceno výše na 30% -->
+                <img src="images/T6.webp" alt="Young student at Kawai piano" style="object-position: center 30%;">
             </div>
             <div class="test-text">
                 <p>My daughter Yuqin has been learning piano with Aneta for almost two years, and the experience has been wonderful. Aneta shows exceptional patience and creates a learning environment that truly captures children's interest. Her lessons are interactive, well-paced, and thoughtfully designed to keep young learners motivated.</p>
