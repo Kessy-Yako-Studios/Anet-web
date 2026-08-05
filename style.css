@@ -311,7 +311,8 @@ footer p {
     height: 60vh;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/foto (27).webp');
     background-size: cover;
-    background-position: center;
+    background-position: center 65%;
+    background-attachment: fixed;
 }
 
 .about-hero h1 {
@@ -374,6 +375,8 @@ footer p {
 .lessons-hero {
     height: 60vh;
     background: url('images/foto (10).webp') center/cover no-repeat;
+    background-position: 60% 35% !important;
+    background-attachment: fixed;
 }
 
 .lessons-banner {
@@ -663,7 +666,7 @@ footer p {
 
 @media (max-width: 1200px) {
     .hero {
-        background-position: left center !important; 
+        background-position: 20% center !important; 
     }
 
     nav {
